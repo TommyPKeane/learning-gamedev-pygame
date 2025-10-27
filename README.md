@@ -121,8 +121,12 @@ This repository contains multiple example games, so the subsections here explain
 <a id="checkers"></a>
 ### Checkers
 
+1. Active `direnv` Environment: `direnv allow`
+1. Update `pip`: `pip install --upgrade pip`
 1. Install Dependencies: `uv sync --active`
 1. Run the Game: `uv run --active ./checkers`
+
+After you do all the above steps for the first time, you just need to call the last step to run the game.
 
 <a id="references"></a>
 ## References
