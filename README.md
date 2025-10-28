@@ -134,3 +134,7 @@ After you do all the above steps for the first time, you just need to call the l
 - https://docs.astral.sh/uv/
 - https://docs.astral.sh/ruff/
 - https://docs.astral.sh/uv/concepts/projects/dependencies/
+- https://www.cosmicpython.com/
+- https://www.pygame.org/
+- https://gameprogrammingpatterns.com/state.html
+- https://blog.frost.kiwi/dual-kawase/
