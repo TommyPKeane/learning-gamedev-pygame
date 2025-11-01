@@ -5,11 +5,16 @@ TODO (tommypkeane): Overwrite example game logic with Checkers game.
 References:
     - https://www.pygame.org/docs/
 """
+
 import argparse
 import datetime
 import logging
 
 import pygame
+
+from checkers_utils.ui_render import (
+    create_gameboard,
+)
 
 
 module_logger = logging.getLogger(__name__)
@@ -42,8 +47,14 @@ def runtime_loop(
 
     screen_obj.fill("black")
 
-    while game_is_running:
+    create_gameboard(
+        screen_obj=screen_obj,
+        color_a=(128, 0, 0, 64),
+        color_b=(0, 10, 0, 64),
+        board_size=8,
+    )
 
+    while game_is_running:
         for event_obj in pygame.event.get():
             if event_obj.type == pygame.QUIT:
                 game_is_running = False
@@ -86,7 +97,6 @@ def runtime_loop(
         else:
             pass
 
-
         pygame.display.flip()
 
         delta_time_ms = clock_obj.tick(max_tick_rate_per_sec) / MILLISECONDS_PER_SECOND
@@ -105,9 +115,7 @@ if __name__ == "__main__":
         "--max_tick_rate_per_sec",
         type=int,
         default=60,
-        help=(
-            "Maximum framerate setting in [fps]."
-        ),
+        help=("Maximum framerate setting in [fps]."),
     )
 
     cli_parser_obj.add_argument(
@@ -134,9 +142,7 @@ if __name__ == "__main__":
 
     pygame.init()
 
-    screen_obj = pygame.display.set_mode(
-        (1280, 720)
-    )
+    screen_obj = pygame.display.set_mode((1280, 720))
 
     screen_center_vec: pygame.Vector2 = pygame.Vector2(
         screen_obj.get_width() / 2,
